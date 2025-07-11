@@ -49,7 +49,7 @@ export const Counter = createComponent(
 );
 ```
 
-🧩 What is @magnumjs/micro-ui?
+🧩 What is `@magnumjs/micro-ui?`
 
 A micro-library for building reactive DOM components:
 
