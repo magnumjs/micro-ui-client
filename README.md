@@ -13,7 +13,8 @@ Then open http://localhost:5173 in your browser.
 
 
 🧱 Example Component
-This project includes a simple Counter component powered by @magnumjs/micro-ui.
+
+This project includes a simple Counter component powered by `@magnumjs/micro-ui.`
 
 Component Usage
 ```js
@@ -23,7 +24,33 @@ Counter.mountTo('#app');
 Counter.update({ count: 0 });
 ```
 
+Component
+```js
+import { createComponent } from '@magnumjs/micro-ui';
+
+export const Counter = createComponent(
+  ({ count = 0 }) => `
+    <div>
+      <h2>Count: ${count}</h2>
+      <button id="inc">+</button>
+      <button id="dec">-</button>
+    </div>
+  `,
+  {
+    events: {
+      'click #inc': function () {
+        this.update({ count: (this.props.count ?? 0) + 1 });
+      },
+      'click #dec': function () {
+        this.update({ count: (this.props.count ?? 0) - 1 });
+      },
+    },
+  }
+);
+```
+
 🧩 What is @magnumjs/micro-ui?
+
 A micro-library for building reactive DOM components:
 
  - Reactive props
@@ -51,10 +78,12 @@ micro-ui-client/
 ```
 
 📚 Resources
+
  - [@magnumjs/micro-ui on npm](https://www.npmjs.com/package/@magnumjs/micro-ui)
 
  - [Micro UI GitHub](https://github.com/magnumjs/micro-ui)
 
 
 🛠️ Author
+
 Built with ❤️ by [Tova’s Husband](https://github.com/magnumjs) – using [@magnumjs/micro-ui](https://www.npmjs.com/package/@magnumjs/micro-ui).
